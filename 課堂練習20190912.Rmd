@@ -1,0 +1,15 @@
+---
+title: "課堂練習"
+date: "9/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(reticulate)
+use_python("C:/Users/yofun/ANACON~1/envs/myEnvironment",
+           required = T)
+use_condaenv("myEnvironment", required = T)
+```
+
