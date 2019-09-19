@@ -13,3 +13,148 @@ use_python("C:/Users/yofun/ANACON~1/envs/myEnvironment",
 use_condaenv("myEnvironment", required = T)
 ```
 
+```{python}
+a = 5
+type(a) #check class type
+```
+```{python}
+range #fn加f1是查詢python的函數意思
+```
+
+```{r}
+# conda安裝方式
+conda_install("myEnvironment", # 沙盒環境名稱
+              c("numpy","pandas")) # 要安裝的modules
+```
+
+```{python}
+string = "你好"
+string2 = '我很好' # 用單引號也可以
+type(string)
+numInteger = 3
+type(numInteger)
+#len(numInteger)
+numFloat = 3.
+type(numFloat)
+#len(numFloat)
+```
+```{python}
+listA=[1,2,True]
+listA
+type(listA)
+listB=[1,["a","b"],True] # nested list
+listB
+type(listB)
+len(listA)
+```
+```{python}
+list3 = [1, 2, ("class", "a", [1, 2, 3]), {4, True} ]
+len(list3)
+```
+```{python}
+print(listA)
+
+a, *b = listA
+a; type(a)
+b; type(b)
+```
+
+```{python}
+gradeTuple = ("fanny", 88, 72, 58, "men, girl")
+name, *grade, gender = gradeTuple
+
+name 
+grade
+gender
+type(grade)
+```
+
+```{python}
+setD={1,"a",(1,4)}
+type(setD)
+print(setD)
+setE={True,False}
+print(setE)
+setF={1,"b",[1,4]}
+```
+
+```{python}
+setG={1,"b",(1,4,(5,8))}
+print(setG)
+len(setG)
+setH={1,"b",(1,4,[5,8])}
+
+```
+
+
+```{python}
+listY=[1,1,3,0,1,0,2]
+listY
+list(set(listY))
+
+setY=set(listY)
+setY
+listY2=list(setY)
+listY2
+```
+
+```{python}
+listA
+listA[0] # 0開始
+listA[1]
+listA[2]
+listA[3]
+```
+
+```{python}
+listA = [('Mary','John'),('A2838','C8898'),(89,73)]
+len(listA) # number od elements
+listA[0] # take the first element
+listA[0][1] # take the first element and then take the second element
+
+type(listA[0])
+type(listA[0][1])
+```
+
+```{python}
+tupleC=(1,["a","b"],True)
+tupleC[1][1]
+```
+```{python}
+studentID=710761103
+studentID3 = str(studentID)
+type(studentID)
+type(studentID3)
+studentID3[3]
+
+```
+
+```{python}
+listA=['A','B','C','D','E','F','G','H','I','J']
+listA
+listA[0:5:1]
+listA[0:5]
+listA[0:5:2]
+listA[:5] # first five (from 0 to 4)
+```
+```{python}
+listA
+listA[-2:5:-1] #from last two
+listA[-2:-6:-1]
+listA[-5:-1:1]
+listA[-5:] 
+```
+
+```{python}
+list( listA[index] for index in [0, 2, 7] )
+```
+
+```{python}
+list( listA[index] for index in [1, 8, 3, 4] )
+```
+
+```{python}
+listB = [2, 5, -1, 31, -22, 3, 17, 25]
+[listB[index] for index in [0,6,7]]
+```
+
