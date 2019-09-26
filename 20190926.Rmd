@@ -1,0 +1,94 @@
+---
+title: "課堂練習"
+date: "9/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(reticulate)
+use_python("C:/Users/yofun/ANACON~1/envs/myEnvironment",
+           required = T)
+use_condaenv("myEnvironment", required = T)
+```
+
+```{r}
+library(reticulate)
+conda_create("myEnvironment")
+```
+
+```{r}
+# conda安裝方式
+conda_install("myEnvironment", # 沙盒環境名稱
+              c("numpy","pandas")) # 要安裝的modules
+```
+
+```{python}
+dictionaryA ={"name": "Mary", "id": "A28374", "grade": 77}
+dictionaryA
+```
+
+```{python}
+setB = {
+1: "a", 
+2: "c",
+"3": 2,  
+4: 3,
+5: 7
+}
+
+setB["3"]
+```
+
+```{python}
+sparseMatrix = {
+(0, 0): 3, 
+(0, 2): -2, 
+(0, 3): 11,
+(1, 1): 9, 
+(2, 1): 7, 
+(3, 3): -5}
+print(sparseMatrix)
+```
+
+```{python}
+listA = [2, 3, 4, 7, 6]
+listA[2] = -1 #can change
+listA
+```
+
+```{python}
+grade = {
+(172, "小明"): 80,
+(214, "大雄"): 60,
+(322, "胖虎"): 90,
+(425, "小新"): 70,
+(517, "大白"): 50
+}
+
+(172, "小明")
+```
+```{python}
+grade = {
+"id": [172, 214, 322, 425, 517],
+"name": ["a","b","c","d","e"],
+"grades": [80,60,90,70,50]
+}
+```
+
+```{python}
+grade["grades"]
+```
+
+```{python}
+grade["name"][0]
+grade["grades"][0]
+{grade["name"][0]: grade["grades"][0]}
+```
+```{python}
+{
+grade['name'][i]: grade["grades"][i] for i in [0, 1, 2, 3, 4]
+}
+```
+
