@@ -92,3 +92,117 @@ grade['name'][i]: grade["grades"][i] for i in [0, 1, 2, 3, 4]
 }
 ```
 
+```{python}
+sparseMatrix = {
+(0, 0): 3, 
+(0, 2): -2, 
+(0, 3): 11,
+(1, 1): 9, 
+(2, 1): 7, 
+(3, 3): -5}
+print(sparseMatrix)
+```
+
+```{python}
+originalList=[1,2,"a"]
+definitionCopy=originalList 
+sliceCopy=originalList[:] 
+sliceCopy2=originalList.copy()
+sliceCopy
+sliceCopy2
+```
+
+```{python}
+print(definitionCopy)
+print(originalList)
+
+definitionCopy[1]="b"
+print(definitionCopy)
+print(originalList)
+
+originalList[1]=2
+print(definitionCopy)
+print(originalList)
+```
+
+```{python}
+treeA=[1,2,3,[4,5],[6,7]]
+
+treeACopy = treeA.copy()
+```
+```{python}
+listA=[2,3,"b"]
+listA.append(5)
+listA #  change (mutable)
+stringA="Hello"
+stringA.upper()
+stringA # no change (immutable)
+```
+```{python}
+3>4
+```
+```{python}
+numList=[3,2,11,43]
+[numList[i] + 3 for i in [0, 1, 2, 3]]
+```
+
+```{python}
+[numList[i] > 10 for i in [0, 1, 2, 3]]
+```
+
+```{python}
+a="Hello, how are you?"
+len(a) # 
+b=["Hello"]
+len(b) # 
+```
+
+```{python}
+x = "Hello " + "World"
+x
+```
+
+```{python}
+x=[1,2,3]
+y=[1,2,3]
+z=[1,2]
+x==y
+x==z
+x is x 
+x is y
+```
+```{python}
+5 in [1,5,3]
+[5] in [1,5,3]
+```
+
+```{python}
+listF=[2,5,10,11,-1,7]
+listG=[4,7,-2,10,11,15]
+[listF[i] > listG[i] for i in [0, 1, 2, 3, 4, 5]]
+```
+
+```{python}
+listC=[2,3,4]
+[str(listC[i]) for i in [0, 1, 2]]
+```
+
+```{python}
+list2iter=["a",2,"c"]
+[i for i in [0,1,2]]
+[i for i in range(0,3)] 
+[i for i in range(0,len(list2iter))] 
+
+[type(list2iter[i]) is str for i in range(0,3)]
+```
+
+```{python}
+"{0}'s {1} score is {2}".format("Amy", "Econ", 50)  
+"{}'s {} score is {}".format("Amy", "Econ", 50) 
+"{1}'s {0} score is {2}".format("Econ","Amy", 50)   
+
+
+"{name}'s {subject} score is {grade}".format(
+  name="Amy",grade=50,subject="Econ") 
+```
+
