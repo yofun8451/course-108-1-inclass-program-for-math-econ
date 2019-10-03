@@ -1,0 +1,109 @@
+---
+title: "課堂練習"
+date: "9/12/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(reticulate)
+use_python("C:/Users/yofun/ANACON~1/envs/myEnvironment",
+           required = T)
+use_condaenv("myEnvironment", required = T)
+```
+
+```{python}
+dictionaryA={
+  "date": [2001,2002,2003],
+  "price": [21000,33000,45880]}
+dictionaryA
+
+dictionaryA["number"]=[100,200,300]
+dictionaryA
+```
+
+```{python}
+dictionaryA.keys()
+```
+
+```{python}
+dictionaryA.get("date")
+dictionaryA.get("item")
+dictionaryA.get("item","no this key") #last is warning word if no item key
+```
+
+```{python}
+dictionaryA.keys()
+dictionaryA.values()
+dictionaryA.items()
+
+
+list(dictionaryA.keys())
+dictionaryA.keys()[0]
+```
+
+```{python}
+dictionaryA.keys()
+
+list(dictionaryA.keys())[1]
+```
+
+```{python}
+list(dictionaryA.items())
+```
+
+```{python}
+import pandas as pd
+finStatement=pd.read_csv("http://mopsfin.twse.com.tw/opendata/t187ap06_O_ci.csv")
+dict_finStatement=finStatement.to_dict()
+```
+
+```{r}
+#library(dplyr)
+View(py$dict_finStatement)
+```
+
+```{python}
+dict_finStatement.keys()
+```
+
+
+```{python}
+dict_finStatement.get( '營業利益（損失）').values()
+dict_finStatement.get('公司名稱')
+```
+
+1. 找出損失的index
+```{python}
+profit=list(dict_finStatement.get( '營業利益（損失）').values())
+lossFirmKeys=[index for index in range(len(profit)) if profit[index]<0]
+```
+
+2. 由index進去公司找出名稱
+```{python}
+index=lossFirmKeys[100]
+dict_finStatement.get('公司名稱')[index]
+dict_finStatement.get('公司名稱').get(index)
+[dict_finStatement.get('公司名稱').get(index) for index in lossFirmKeys]
+```
+
+dictionary comprehension 呈現公司名稱：損失金額
+```{python}
+{dict_finStatement.get('公司名稱').get(index): list(dict_finStatement.get( '營業利益（損失）').values())[index] for index in lossFirmKeys}
+```
+
+```{python}
+dict_finStatement.get( '營業利益（損失）').values()
+```
+
+
+# comprehension with condition
+
+```{python}
+listA=[10,2,7,3,8]
+[listA[index] for index in range(len(listA)) if listA[index]>5]
+[index for index in range(len(listA)) if listA[index]>5 ]
+```
