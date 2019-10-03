@@ -107,3 +107,16 @@ listA=[10,2,7,3,8]
 [listA[index] for index in range(len(listA)) if listA[index]>5]
 [index for index in range(len(listA)) if listA[index]>5 ]
 ```
+
+```{python}
+def test(input1, input2=0):
+  print('input1 is ', input1)
+  print('input2 is ', input2)
+  return None
+  
+test(1,1) 
+test(input1=1,input2=1)
+
+test(1) # 動用到預設值
+```
+
