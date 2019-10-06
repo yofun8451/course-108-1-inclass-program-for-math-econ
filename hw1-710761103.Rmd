@@ -80,13 +80,8 @@ x_logi
 ### 1.5 邏輯運算
 計算x_logi中False的個數，存在答案物件`num_false`。 （
 ```{python ans15}
-listA = []
-x_logi_str = [str(x_logi[i]) for i in [0,1,2,3,4,5,6,7,8,9,10,11]
-x_logi_str
-if x_logi_str[i] == 'False' for i in range(len(x_logi_str)):
-  listA.append('False')
-print(listA)
-# num_false
+num_false = x_logi.count(False)
+num_false
 ```
 
 ## 2
@@ -101,9 +96,9 @@ dict_business=df_business.to_dict()
 有多少公司的'公司所在地'在'桃園市'，請將數字存在`num_taoyuan`。
 
 ```{python ans21}
-listB = list(dict_business['公司所在地'])
-listB.count('桃園市')
-# num_taoyuan
+cityname=["".join(list(list(dict_business.get('公司所在地').values())[i])[0:3])  for i in range(len(dict_business.get('公司所在地')))]
+num_taoyuan=cityname.count('桃園市')
+num_taoyuan
 ```
 
 ### 2.2
@@ -174,8 +169,8 @@ danceInfoList = {
 ListShowInfo = list(danceInfo[i]['showInfo'][0]) for i in range(0,92)
 danceInfoList = {}
 danceInfoList['title'] = [danceInfo[i]['title'] for i in range(0,92)]
-danceInfoList['time'] = [danceInfo[i]['showInfo'][0]['time'] for i in range(0,2)]
-danceInfoList['location'] = [danceInfo[i]['showInfo'][0]['location'] for i in range(0,2)]
+danceInfoList['time'] = [danceInfo[i]['showInfo'][0]['time'] for i in range(0,92)]
+danceInfoList['location'] = [danceInfo[i]['showInfo'][0]['location'] for i in range(0,92)]
 ```
 
 
