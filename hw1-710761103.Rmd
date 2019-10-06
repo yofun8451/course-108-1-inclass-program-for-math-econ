@@ -127,13 +127,16 @@ danceInfo=response.json()
 ### 3.1
 danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞蹈表演，存在numDance的class int物件裡
 ```{python ans31}
-# numDance
+len(danceInfo)
+numDance = len(danceInfo)
+numDance
 ```
 
 ### 3.2
 第1場的表演名稱'title'是什麼？請存在名為title1的物件裡。
 ```{python ans32}
-# title1
+title1 = danceInfo[0]['title']
+title1
 ```
 
 
@@ -141,14 +144,16 @@ danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞�
 第1場的表演地點'location'在哪裡?請存在名為local1的物件裡。
 
 ```{python ans33}
-# local1
+local1 = danceInfo[0]['showInfo'][0]['location']
+local1
 ```
 
 ### 3.4
 第1場的表演時間'time'為何？請存在名為time11的物件裡。
 
 ```{python ans34}
-# time1
+time1 = danceInfo[0]['showInfo'][0]['time']
+time1
 ```
 
 ### 3.5
@@ -157,13 +162,28 @@ danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞�
 [{'title': '原音舞絢', 'time': '2019/09/29 14:30:00', 'location': '台北市中山南路21號，藍白建築1樓'}, {'title': '國立彰化生活美學館108年「舞藝人生-土風舞藝術」推廣計畫-第四場', 'time': '2019/11/03 08:30:00', 'location': '彰化縣彰化市卦山路18號'}]
 
 ```{python ans35}
+danceInfoList = {
+'title': [danceInfo[i]['title'] for i in range(0,92)],
+'time' : [danceInfo[i]['showInfo'][0]['time'] for i in range(0,92)],
+'location' : [danceInfo[i]['showInfo'][0]['location'] for i in range(0,92)]
+}
 # danceInfoList
 ```
+
+```{python}
+ListShowInfo = list(danceInfo[i]['showInfo'][0]) for i in range(0,92)
+danceInfoList = {}
+danceInfoList['title'] = [danceInfo[i]['title'] for i in range(0,92)]
+danceInfoList['time'] = [danceInfo[i]['showInfo'][0]['time'] for i in range(0,2)]
+danceInfoList['location'] = [danceInfo[i]['showInfo'][0]['location'] for i in range(0,2)]
+```
+
 
 ### 3.6
 產生一個list of string, 對應每一場演出它會形成如下的陳述句，以上題danceInfo[0]的資訊為例，它的陳述句為：
 '【原音舞絢】將於2019/09/29 14:30:00在台北市中山南路21號，藍白建築1樓演出'
 
 ```{python ans36}
+"{title}將於演出".format([danceInfo[0]['title'])
 # danceInfoStr
 ```
