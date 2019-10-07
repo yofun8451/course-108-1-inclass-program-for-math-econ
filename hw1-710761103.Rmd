@@ -101,7 +101,6 @@ cityname=["".join(list(list(dict_business.get('公司所在地').values())[i])[0
 num_taoyuan=cityname.count('桃園市')
 num_taoyuan
 ```
-
 ### 2.2
 有多少公司的'資本額'大於500000，請將數字存在`num_largeCapital`。
 ```{python ans22}
