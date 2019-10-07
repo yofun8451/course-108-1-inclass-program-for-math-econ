@@ -96,7 +96,8 @@ dict_business=df_business.to_dict()
 有多少公司的'公司所在地'在'桃園市'，請將數字存在`num_taoyuan`。
 
 ```{python ans21}
-cityname=["".join(list(list(dict_business.get('公司所在地').values())[i])[0:3])  for i in range(len(dict_business.get('公司所在地')))]
+cityname=["".join(list(list(dict_business.get('公司所在地').values())[i])[0:3]) 
+          for i in range(len(dict_business.get('公司所在地')))]
 num_taoyuan=cityname.count('桃園市')
 num_taoyuan
 ```
@@ -157,28 +158,24 @@ time1
 [{'title': '原音舞絢', 'time': '2019/09/29 14:30:00', 'location': '台北市中山南路21號，藍白建築1樓'}, {'title': '國立彰化生活美學館108年「舞藝人生-土風舞藝術」推廣計畫-第四場', 'time': '2019/11/03 08:30:00', 'location': '彰化縣彰化市卦山路18號'}]
 
 ```{python ans35}
-danceInfoList = {
-'title': [danceInfo[i]['title'] for i in range(0,92)],
-'time' : [danceInfo[i]['showInfo'][0]['time'] for i in range(0,92)],
-'location' : [danceInfo[i]['showInfo'][0]['location'] for i in range(0,92)]
-}
-# danceInfoList
+danceInfoList = [{
+'title': danceInfo[i]['title'],
+'time' : danceInfo[i]['showInfo'][0]['time'],
+'location' : danceInfo[i]['showInfo'][0]['location']
+} for i in range(numDance)]
+danceInfoList
 ```
-
-```{python}
-ListShowInfo = list(danceInfo[i]['showInfo'][0]) for i in range(0,92)
-danceInfoList = {}
-danceInfoList['title'] = [danceInfo[i]['title'] for i in range(0,92)]
-danceInfoList['time'] = [danceInfo[i]['showInfo'][0]['time'] for i in range(0,92)]
-danceInfoList['location'] = [danceInfo[i]['showInfo'][0]['location'] for i in range(0,92)]
-```
-
-
 ### 3.6
 產生一個list of string, 對應每一場演出它會形成如下的陳述句，以上題danceInfo[0]的資訊為例，它的陳述句為：
 '【原音舞絢】將於2019/09/29 14:30:00在台北市中山南路21號，藍白建築1樓演出'
 
 ```{python ans36}
-"{title}將於演出".format([danceInfo[0]['title'])
-# danceInfoStr
+def InfoStr(i):
+  return "{title}將於{time}在{location}演出".format(
+    title=list(danceInfoList[i].values())[0],
+    time=list(danceInfoList[i].values())[1],
+    location=list(danceInfoList[i].values())[2])
+    
+danceInfoStr=[InfoStr(i) for i in range(numDance)]
+danceInfoStr
 ```
