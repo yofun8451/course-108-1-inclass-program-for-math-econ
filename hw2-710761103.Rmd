@@ -184,7 +184,10 @@ allUIDs[1]
 ```
 
 ```{python ans21}
-# allUIDs
+allUIDs = list(danceInfo[i]['UID'] for i in range(len(danceInfo)))
+allUIDs
+allUIDs[0]
+allUIDs[1]
 ```
 
 ### 2.2
@@ -203,6 +206,9 @@ hint: 答案正確時，打`search_by_uid('5d93a403d083a331549834d6')`會得到�
 ```
 
 ```{python ans22}
+def search_by_uid(allUIDs[i]) for i in range(len(allUIDs)):
+    print(danceInfo[i]['showInfo'])
+    return None
 # search_by_uid
 ```
 
@@ -243,18 +249,21 @@ M=[[7, -9, -5, 10, -13],
 令$M_{ij}$代表M中第i行（row）第j列（column）的值，請取出$M_{24}$ 存在答案物件M24
 
 ```{python ans31}
-# M24
+M2 = np.array(M)
+M24 = M2[1,3]
+M24
 ```
 
 ### 3.2
-取出矩陣M的第2,3 row的第3到5 colum的所有值，即：
+取出矩陣M的第2,3 row的第3到5 column的所有值，即：
 $$M_{2:3,3:5}=\left[\begin{array}{ccccc}
  -3 & -6 & -14\\
  -4 & 1 & 5
 \end{array}\right]$$
 並將它存在答案物件M_partial
 ```{python ans32}
-# M_partial
+M_partial = M2[1:3,2:5]
+M_partial
 ```
 
 ### 3.3 matrix_get
@@ -275,5 +284,10 @@ hint: 答案正確的話例如，輸入`matrix_get(M,range(1,3),range(2,5))`會�
 即前一小題答案值。
 
 ```{python ans33}
+rangeR = 
+def matrix_get(matrix, rangeR, rangeC):
+    print(M2[rangeR,rangeC])
+    
+
 # matrix_get
 ```
