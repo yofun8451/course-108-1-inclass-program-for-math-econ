@@ -87,7 +87,15 @@ chunk_lang(chunk_start_example2)
 
 
 ```{python ans11}
-# chunk_lang
+def chunk_lang(chunk_start):
+    if chunk_start == "```{python}":
+      return 'python'
+    elif chunk_start == "```{r }":
+      return 'r'
+chunk_start=chunk_start_example1="```{python}"
+chunk_start_example2="```{r }"
+chunk_lang(chunk_start_example1)
+chunk_lang(chunk_start_example2)
 ```
 
 
@@ -99,7 +107,8 @@ hint: index_3ticks的前3個值是26，32，39。
 
 
 ```{python ans12}
-# index_3ticks
+index_3ticks=[i for i in range(len(filelines)) if filelines[i][0:3] == '```']
+index_3ticks
 ```
 
 
@@ -129,7 +138,23 @@ dict_chunks['language'][0]
 ```
 
 ```{python ans13}
-# dict_chunks
+start=[index_3ticks[i]+1 for i in range(len(index_3ticks)) if i%2 == 0]
+end=[index_3ticks[i]-1 for i in range(len(index_3ticks)) if i%2 == 1]
+
+def language(inpute):
+  if filelines[inpute][0:5] == u'```{r':
+    return 'r'
+  elif filelines[inpute][0:5] == u'```{p':
+    return 'python'
+  
+language=[language(i-1) for i in start]
+
+dict_chunks={'start':start,'end':end,'language':language}
+dict_chunks
+
+dict_chunks['start'][0]
+dict_chunks['end'][0]
+dict_chunks['language'][0]
 ```
 
 ### 1.4 code extraction
@@ -149,7 +174,16 @@ python_code_list[2]
 ```
 
 ```{python ans14}
-# python_code_list
+chunks_num=[]
+for i in [i for i in range(len(dict_chunks['start'])) if dict_chunks['language'][i] == 'python']:
+  chunks_num += range(dict_chunks['start'][i],dict_chunks['end'][i]+1)
+
+python_code_list=[filelines[i] for i in chunks_num]
+python_code_list
+
+python_code_list[0]
+python_code_list[1]
+python_code_list[2]
 ```
 
 
@@ -206,10 +240,11 @@ hint: 答案正確時，打`search_by_uid('5d93a403d083a331549834d6')`會得到�
 ```
 
 ```{python ans22}
-def search_by_uid(allUIDs[i]) for i in range(len(allUIDs)):
-    print(danceInfo[i]['showInfo'])
-    return None
-# search_by_uid
+UIDslist = list(danceInfo[i].get('UID') for i in range(len(danceInfo)))
+def search_by_uid(uid):
+    print(danceInfo[UIDslist.index(uid)]['showInfo'])
+    
+search_by_uid('5d35ec95d083a398fcdc5e14')
 ```
 
 ### 2.3
@@ -226,7 +261,11 @@ hint: 若答案正確，`updated_result`內容值為：
 ```
 
 ```{python ans23}
-# updated_result
+ans23=search_by_uid('5d35ec95d083a398fcdc5e14')
+ans23.append({'time': '2019/10/30 15:00:00', 'location': '新北市三峽區大學路151號', 'locationName': '國立臺北大學'})
+
+updated_result=ans23
+updated_result
 ```
 
 ## 3.
@@ -249,6 +288,7 @@ M=[[7, -9, -5, 10, -13],
 令$M_{ij}$代表M中第i行（row）第j列（column）的值，請取出$M_{24}$ 存在答案物件M24
 
 ```{python ans31}
+import numpy as np
 M2 = np.array(M)
 M24 = M2[1,3]
 M24
@@ -284,10 +324,8 @@ hint: 答案正確的話例如，輸入`matrix_get(M,range(1,3),range(2,5))`會�
 即前一小題答案值。
 
 ```{python ans33}
-rangeR = 
 def matrix_get(matrix, rangeR, rangeC):
-    print(M2[rangeR,rangeC])
+  print([[matrix[i][j] for j in rangeC] for i in rangeR])
     
-
-# matrix_get
+matrix_get(M,range(1,3),range(2,5))
 ```
