@@ -82,6 +82,47 @@ df_grade0.學號 #R裡面: df_grade0$學號
 
 ```{python}
 df_grade0[[True, False, True, False, False]] #用boolen來取row
+df_grade0.成績>70
+df_grade0[df_grade0.成績>70]
+```
 
+```{python}
+df_grade0.loc[[0,2,4],['學號','成績']]
+df_grade0.loc[1:3,]
+df_grade0.loc[:,'學號':'成績']
+```
+
+```{python}
+df_grade0.iloc[[0,2,4],[0,2]] #iloc是position所以不能打學號了
+df_grade0.iloc[1:3,:] #position最後一個不算
+df_grade0.iloc[:,[0,2]]
+df_grade0.iloc[:,[True, False, True]]
+
+```
+
+```{python}
+df_grade0.sample(n=10, replace=True) #index可以重複
+```
+
+```{python}
+df_grade0
+df_grade1=df_grade0.loc[[0,3],["學號","姓名"]]
+
+df_grade1
+df_grade0.loc[[0,3],"成績"] #inedx搜尋
+```
+
+index用文字
+```{python}
+df_grade0
+df_grade0.set_axis(['a','b','c','d','e'],axis=0,inplace=True) #把index改掉
+df_grade0
+```
+
+set_index()
+```{python}
+df_grade0.reset_index()
+df_grade0.set_index("學號",inplace=True) #學號變index
+df_grade0
 ```
 
