@@ -126,3 +126,12 @@ df_grade0.set_index("學號",inplace=True) #學號變index
 df_grade0
 ```
 
+```{python}
+numList=[3,2,11,43]
+numArray=np.array(numList)
+numArray+3
+numArray>10
+numArray+np.array([0,3,-1,2])
+numArray*2
+```
+
