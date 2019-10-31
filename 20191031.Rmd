@@ -82,5 +82,6 @@ df_grade0.學號 #R裡面: df_grade0$學號
 
 ```{python}
 df_grade0[[True, False, True, False, False]] #用boolen來取row
+
 ```
 
